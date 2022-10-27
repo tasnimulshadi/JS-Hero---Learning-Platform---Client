@@ -14,6 +14,7 @@ const Course = () => {
                 {/* lesson list */}
                 <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 ">
                     <h2 className="text-xl font-semibold tracking-widest text-indigo-400">{course.title}</h2>
+                    <p className="">{course?.details}</p>
                     <hr className='border-black dark:border-white' />
                     {
                         course.lessons.map(lesson =>

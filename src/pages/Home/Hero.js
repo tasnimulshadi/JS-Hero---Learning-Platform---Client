@@ -11,7 +11,7 @@ const Hero = () => {
                     <p className="mt-6 mb-8 text-lg sm:mb-12">Learn in an interactive environment. Read short lessons, take notes, and complete challenges directly in your browser.
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <Link to="/courses" className="px-8 py-3 text-lg font-semibold rounded bg-indigo-400 text-white">Explore Courses</Link>
+                        <Link to="/courses/01" className="px-8 py-3 text-lg font-semibold rounded bg-indigo-400 text-white">Explore Courses</Link>
                         <Link to="/signin" className="px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100 border-gray-900">Sign in</Link>
                     </div>
                 </div>

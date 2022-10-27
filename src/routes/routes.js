@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import ErrorPage from '../components/ErrorPage/ErrorPage';
 import Main from '../layout/Main/Main';
 import Course from '../pages/Course/Course';
 import Lesson from '../pages/Course/Lesson';
@@ -55,6 +56,10 @@ const routes = createBrowserRouter([
             },
 
         ]
+    },
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
 ]);
 
