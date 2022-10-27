@@ -16,10 +16,6 @@ const routes = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/courses',
-                element: <div>Courses</div>
-            },
-            {
                 path: '/blog',
                 element: <div>blog</div>
             },
@@ -27,6 +23,8 @@ const routes = createBrowserRouter([
                 path: '/faq',
                 element: <div>faq</div>
             },
+
+
         ]
     }
 ]);
