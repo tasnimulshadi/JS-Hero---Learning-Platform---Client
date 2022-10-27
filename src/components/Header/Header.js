@@ -4,9 +4,11 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { useContext } from 'react';
 import { themeContext } from '../../context/ThemeProvider';
+import { AuthContext } from '../../context/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Header = () => {
-    const user = true;
+    const { user, signOutUser } = useContext(AuthContext);
 
     //theme
     const { darkmode, setDarkMode } = useContext(themeContext);
@@ -16,7 +18,15 @@ const Header = () => {
     //active nav class
     const activeNav = ({ isActive }) => isActive ? 'flex items-center px-4 -mb-1 border-b-2 border-transparent text-indigo-400 border-indigo-400' : 'flex items-center px-4 -mb-1 border-b-2 border-transparent';
 
-
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+                toast.success('User logged out');
+            }).catch((error) => {
+                toast.error(error.message);
+                console.error(error);
+            });
+    }
 
     return (
         <header className="py-4 dark:bg-gray-800 dark:text-gray-100 border-b-2">
@@ -45,7 +55,7 @@ const Header = () => {
                     {
                         user ?
                             <>
-                                <button className="self-center px-8 py-3 rounded">Sign out</button>
+                                <button onClick={handleSignOut} className="self-center px-8 py-3 rounded">Sign out</button>
                                 <img className='w-8 rounded-full' src={user} alt="" />
                             </>
                             :
@@ -82,7 +92,7 @@ const Header = () => {
                         {
                             user ?
                                 <>
-                                    <button className="self-center px-8  rounded">Sign out</button>
+                                    <button onClick={handleSignOut} className="self-center px-8  rounded">Sign out</button>
                                     <img className='w-8 rounded-full' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="" />
                                 </>
                                 :
