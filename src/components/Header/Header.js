@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 
 const Header = () => {
     const { user, signOutUser } = useContext(AuthContext);
+    // console.log(user);
 
     //theme
     const { darkmode, setDarkMode } = useContext(themeContext);
@@ -56,7 +57,7 @@ const Header = () => {
                         user ?
                             <>
                                 <button onClick={handleSignOut} className="self-center px-8 py-3 rounded">Sign out</button>
-                                <img className='w-8 rounded-full' src={user} alt="" />
+                                <img className='w-10 rounded-full' src={user.photoURL || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"} alt="" title={user.displayName} />
                             </>
                             :
                             <Link to='/signin' className="self-center px-8 py-3 rounded">Sign in</Link>
@@ -93,7 +94,7 @@ const Header = () => {
                             user ?
                                 <>
                                     <button onClick={handleSignOut} className="self-center px-8  rounded">Sign out</button>
-                                    <img className='w-8 rounded-full' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="" />
+                                    <img className='w-10 rounded-full' src={user.photoURL || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"} alt="" title={user.displayName} />
                                 </>
                                 :
                                 <Link to='/signin' className="self-center px-8  rounded">Sign in</Link>

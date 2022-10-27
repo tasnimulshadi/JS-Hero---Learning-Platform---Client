@@ -1,9 +1,13 @@
 import React from 'react';
-import { useLoaderData, Link, Outlet } from 'react-router-dom';
+import { useLoaderData, Link, Outlet, NavLink } from 'react-router-dom';
 
 const Course = () => {
     const course = useLoaderData();
-    console.log(course);
+    // console.log(course);
+
+    //active nav class
+    const activeNav = ({ isActive }) => isActive ? 'text-indigo-400 border-indigo-400' : '';
+
     return (
         <section className="dark:bg-gray-800 dark:text-gray-100">
             <div className="container flex flex-col-reverse mx-auto lg:flex-row">
@@ -18,7 +22,7 @@ const Course = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                                 </svg>
                                 <div className="space-y-2">
-                                    <Link to={`/course/${course.id}/lesson/${lesson.lesson_id}`} className="text-lg font-medium leading-snug">{lesson.title}</Link >
+                                    <NavLink to={`/course/${course.id}/lesson/${lesson.lesson_id}`} className={activeNav}>{lesson.title}</NavLink >
                                 </div>
                             </div>
                         )
