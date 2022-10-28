@@ -8,6 +8,7 @@ import Home from '../pages/Home/Home';
 import Register from '../pages/Register/Register';
 import Signin from '../pages/Signin/Signin';
 import Checkout from '../pages/Checkout/Checkout';
+import PrivateRoute from './PrivateRoute';
 
 const routes = createBrowserRouter([
     {
@@ -40,12 +41,16 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <Courses></Courses>,
+                element: <PrivateRoute>
+                    <Courses></Courses>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
             },
             {
                 path: '/course/:course_id',
-                element: <Course></Course>,
+                element: <PrivateRoute>
+                    <Course></Course>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/course/${params.course_id}`),
                 children: [
                     {
@@ -57,7 +62,9 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <Checkout></Checkout>,
+                element: <PrivateRoute>
+                    <Checkout></Checkout>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
             },
         ]

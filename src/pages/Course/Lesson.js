@@ -13,7 +13,7 @@ const Lesson = () => {
                     <div className='w-full h-[250px] md:h-[400px] lg:h-[300px] xl:h-[360px] shadow-lg'>
                         <ReactPlayer
                             url={lesson.videoUrl}
-                            controls={false}
+                            controls={true}
                             width='100%'
                             height='100%'
                         />
@@ -21,7 +21,9 @@ const Lesson = () => {
                     :
                     <img src={lesson.imgUrl} alt="" className=" shadow-lg dark:bg-gray-500 aspect-video sm:min-h-96" />
             }
-            <h3 className='text-xl'><span className='text-indigo-400 font-semibold'>{lesson.lesson_no}:</span> {lesson.title}</h3>
+            <h3 className='text-xl'>
+                <span className='text-indigo-400 font-semibold'>{lesson.lesson_no}:</span> {lesson.title}
+            </h3>
         </div>
     );
 };

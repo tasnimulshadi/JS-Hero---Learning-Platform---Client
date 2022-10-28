@@ -56,21 +56,21 @@ const Register = () => {
                         <div className="space-y-4">
                             <div className="space-y-2">
                                 <label htmlFor="name" className="block text-sm">Name</label>
-                                <input type="text" name="name" id="name" placeholder="user name" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md  dark:bg-gray-900 dark:text-gray-100 focus:dark:border-blue-400" required />
+                                <input type="text" name="name" id="name" placeholder="user name" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md  dark:bg-gray-900 dark:text-gray-100 focus:dark:border-indigo-400" required />
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="imgUrl" className="block text-sm">Profile Image Url</label>
-                                <input type="text" name="imgUrl" id="imgUrl" placeholder="img url" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md  dark:bg-gray-900 dark:text-gray-100 focus:dark:border-blue-400" required />
+                                <input type="text" name="imgUrl" id="imgUrl" placeholder="img url" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md  dark:bg-gray-900 dark:text-gray-100 focus:dark:border-indigo-400" required />
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm">Email address</label>
-                                <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md  dark:bg-gray-900 dark:text-gray-100 focus:dark:border-blue-400" required />
+                                <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md  dark:bg-gray-900 dark:text-gray-100 focus:dark:border-indigo-400" required />
                             </div>
                             <div className="space-y-2">
                                 <div className="flex justify-between">
                                     <label htmlFor="password" className="text-sm">Password</label>
                                 </div>
-                                <input type="password" name="password" id="password" placeholder="******" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md dark:bg-gray-900 dark:text-gray-100 focus:dark:border-blue-400" required />
+                                <input type="password" name="password" id="password" placeholder="******" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md dark:bg-gray-900 dark:text-gray-100 focus:dark:border-indigo-400" required />
                             </div>
                         </div>
                         <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-indigo-400  text-white dark:text-gray-900">Sign up</button>

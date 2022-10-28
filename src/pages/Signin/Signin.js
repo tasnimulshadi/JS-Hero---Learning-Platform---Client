@@ -10,8 +10,7 @@ const Signin = () => {
     // redirect
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location?.state?.from || '/';
-
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleUserSignIn = event => {
@@ -44,6 +43,7 @@ const Signin = () => {
                 .then(result => {
                     toast.success('User logged in');
                     // console.log(result.user);
+                    navigate(from, { replace: true });
                 })
                 .catch(error => {
                     toast.error(error.message);
@@ -81,14 +81,14 @@ const Signin = () => {
                         <div className="space-y-4">
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm">Email address</label>
-                                <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md  dark:bg-gray-900 dark:text-gray-100 focus:dark:border-blue-400" />
+                                <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md  dark:bg-gray-900 dark:text-gray-100 focus:dark:border-indigo-400" />
                             </div>
                             <div className="space-y-2">
                                 <div className="flex justify-between">
                                     <label htmlFor="password" className="text-sm">Password</label>
                                     <button rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-400">Forgot password?</button>
                                 </div>
-                                <input type="password" name="password" id="password" placeholder="******" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md dark:bg-gray-900 dark:text-gray-100 focus:dark:border-blue-400" />
+                                <input type="password" name="password" id="password" placeholder="******" className="w-full px-3 py-2 border-2 border-gray-400 rounded-md dark:bg-gray-900 dark:text-gray-100 focus:dark:border-indigo-400" />
                             </div>
                         </div>
                         <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-indigo-400  text-white dark:text-gray-900">Sign in</button>

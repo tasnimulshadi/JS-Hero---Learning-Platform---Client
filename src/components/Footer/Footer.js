@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Footer = () => {
 
     //active nav class
-    const activeNav = ({ isActive }) => isActive && 'text-indigo-400';
+    const activeNav = ({ isActive }) => isActive ? 'text-indigo-400' : undefined;
 
     return (
         <footer className="px-4 py-8 dark:bg-gray-800 dark:text-gray-400">
