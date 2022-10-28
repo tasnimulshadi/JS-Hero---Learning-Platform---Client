@@ -13,19 +13,9 @@ const CourseCard = ({ course }) => {
                         <p className='text-sm'>View: {course?.total_view}</p>
                         <p className='text-sm'>Ratings: {course?.rating?.number}</p>
                     </div>
-                    {
-                        course.premium_course
-                            ?
-                            <Link to={`/checkout/${course.id}`}>
-                                <button className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-indigo-400 text-white dark:text-gray-900 mt-2">Buy Now</button>
-                            </Link>
-                            :
-                            // /lesson/${course?.lesson[0]?.lesson_id}
-                            <Link to={`/course/${course.id}/lesson/${course.lessons[0].lesson_id}`}>
-                                <button className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-indigo-400 text-white dark:text-gray-900 mt-2">Start Now</button>
-                            </Link>
-                    }
-
+                    <Link to={`/course/${course.id}/lesson/${course.lessons[0].lesson_id}`}>
+                        <button className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-indigo-400 text-white dark:text-gray-900 mt-2">Start Now</button>
+                    </Link>
                 </div>
             </div>
         </div>

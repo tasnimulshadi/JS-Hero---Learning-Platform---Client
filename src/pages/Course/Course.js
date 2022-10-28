@@ -1,12 +1,12 @@
 import React from 'react';
-import { useLoaderData, Link, Outlet, NavLink } from 'react-router-dom';
+import { useLoaderData, Outlet, Link } from 'react-router-dom';
+import LessonList from './LessonList';
+
 
 const Course = () => {
     const course = useLoaderData();
-    // console.log(course);
-
-    //active nav class
-    const activeNav = ({ isActive }) => isActive ? 'text-indigo-400 border-indigo-400' : '';
+    // console.log(course.lessons);
+    const boughtCourse = false;
 
     return (
         <section className="dark:bg-gray-800 dark:text-gray-100">
@@ -17,16 +17,12 @@ const Course = () => {
                     <p className="">{course?.details}</p>
                     <hr className='border-black dark:border-white' />
                     {
-                        course.lessons.map(lesson =>
-                            <div className="flex space-x-2 sm:space-x-4" key={lesson.lesson_id}>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                                </svg>
-                                <div className="space-y-2">
-                                    <NavLink to={`/course/${course.id}/lesson/${lesson.lesson_id}`} className={activeNav}>{lesson.title}</NavLink >
-                                </div>
-                            </div>
-                        )
+                        course.lessons.map(lesson => <LessonList
+                            key={lesson.lesson_id}
+                            course_id={course.id}
+                            lesson={lesson}
+                            boughtCourse={boughtCourse}
+                        ></LessonList>)
                     }
                     <hr className='border-black dark:border-white' />
                     <div className='flex items-center gap-3'>
@@ -36,6 +32,9 @@ const Course = () => {
                             <p className=""><span className='font-semibold'>Instractor:</span> {course?.author?.name}</p>
                         </div>
                     </div>
+                    <Link to={`/checkout/${course.id}`}>
+                        <button className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-indigo-400 text-white dark:text-gray-900 mt-2">Get Premium Access</button>
+                    </Link>
                 </div>
                 {/* lesson video */}
                 <div className="lg:w-1/2 xl:w-3/5 dark:bg-gray-800">
