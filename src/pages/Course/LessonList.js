@@ -3,6 +3,8 @@ import { FaCheck, FaDollarSign } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
 const LessonList = ({ course_id, lesson, boughtCourse }) => {
+    // unless get premium access some lessons are free and some are locked
+    // if has premium access then all lessons are free to watch
     let paid = !lesson.premium;
     if (boughtCourse) {
         paid = boughtCourse;
