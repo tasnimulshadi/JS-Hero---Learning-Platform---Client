@@ -10,7 +10,7 @@ const Signin = () => {
     // redirect
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+    const previousLocation = location.state?.from?.pathname || '/';
 
 
     const handleUserSignIn = event => {
@@ -25,7 +25,7 @@ const Signin = () => {
                     toast.success('User logged in');
                     form.reset();
                     // redirect
-                    navigate(from, { replace: true });
+                    navigate(previousLocation, { replace: true });
                 })
                 .catch(error => {
                     toast.error(error.message);
@@ -43,7 +43,7 @@ const Signin = () => {
                 .then(result => {
                     toast.success('User logged in');
                     // console.log(result.user);
-                    navigate(from, { replace: true });
+                    navigate(previousLocation, { replace: true });
                 })
                 .catch(error => {
                     toast.error(error.message);
@@ -62,7 +62,7 @@ const Signin = () => {
                 <div className="mx-auto max-w-md p-4 rounded-md shadow-md shadow-indigo-400 sm:p-8">
                     <h2 className="mb-3 text-3xl font-semibold text-center">Sign in</h2>
                     <p className=" text-center dark:text-gray-400">Dont have account?
-                        <Link to='/register' className="focus:underline hover:underline"> Sign up here</Link>
+                        <Link to='/register' state={{ from: previousLocation }} className="focus:underline hover:underline"> Sign up here</Link>
                     </p>
                     <div className="my-6 space-y-4">
                         <button onClick={handleGoogleSignIn} className="flex items-center justify-center w-full p-4 space-x-4 border-2 border-gray-400 rounded-md focus:ring-2 focus:ring-offset-1  focus:ring-blue-400">

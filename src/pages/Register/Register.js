@@ -1,11 +1,18 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
 
 const Register = () => {
     const { user, createUser, updateUser } = useContext(AuthContext);
+
+    // redirect
+    const navigate = useNavigate();
+    const location = useLocation();
+    const previousLocation = location.state?.from || '/';
+    //here pathname already passed so dont need to find the pathname in the (location.state?.from)
+
 
     const handleUserRegister = event => {
         event.preventDefault();
@@ -26,6 +33,7 @@ const Register = () => {
                         .then(() => {
                             toast.success('User Created');
                             form.reset();
+                            navigate(previousLocation, { replace: true })
                         })
                         .catch(error => {
                             toast.error(error.message);

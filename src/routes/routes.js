@@ -9,6 +9,7 @@ import Register from '../pages/Register/Register';
 import Signin from '../pages/Signin/Signin';
 import Checkout from '../pages/Checkout/Checkout';
 import PrivateRoute from './PrivateRoute';
+import FAQ from '../pages/FAQ/FAQ';
 
 const routes = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/faq',
-                element: <div>faq</div>
+                element: <FAQ></FAQ>
             },
             {
                 path: '/signin',
