@@ -30,6 +30,14 @@ const routes = createBrowserRouter([
                 element: <div>faq</div>
             },
             {
+                path: '/signin',
+                element: <Signin></Signin>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
                 path: '/courses/:id',
                 element: <Courses></Courses>,
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
@@ -46,15 +54,6 @@ const routes = createBrowserRouter([
                     }
                 ]
             },
-            {
-                path: '/signin',
-                element: <Signin></Signin>
-            },
-            {
-                path: '/register',
-                element: <Register></Register>
-            },
-
         ]
     },
     {
