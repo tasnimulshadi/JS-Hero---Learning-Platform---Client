@@ -46,19 +46,19 @@ const routes = createBrowserRouter([
                 element: <PrivateRoute>
                     <Courses></Courses>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://ph-assignment-10-learning-platform-server-side.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/course/:course_id',
                 element: <PrivateRoute>
                     <Course></Course>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.course_id}`),
+                loader: ({ params }) => fetch(`https://ph-assignment-10-learning-platform-server-side.vercel.app/course/${params.course_id}`),
                 children: [
                     {
                         path: '/course/:course_id/lesson/:lesson_id',
                         element: <Lesson></Lesson>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/course/${params.course_id}/lesson/${params.lesson_id}`),
+                        loader: ({ params }) => fetch(`https://ph-assignment-10-learning-platform-server-side.vercel.app/course/${params.course_id}/lesson/${params.lesson_id}`),
                     }
                 ]
             },
@@ -67,7 +67,7 @@ const routes = createBrowserRouter([
                 element: <PrivateRoute>
                     <Checkout></Checkout>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://ph-assignment-10-learning-platform-server-side.vercel.app/course/${params.id}`)
             },
         ]
     },

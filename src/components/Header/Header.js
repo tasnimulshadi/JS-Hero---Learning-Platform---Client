@@ -33,7 +33,7 @@ const Header = () => {
 
     // fetch categories
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://ph-assignment-10-learning-platform-server-side.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategoryList(data))
     }, []);
