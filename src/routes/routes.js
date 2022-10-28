@@ -10,6 +10,7 @@ import Signin from '../pages/Signin/Signin';
 import Checkout from '../pages/Checkout/Checkout';
 import PrivateRoute from './PrivateRoute';
 import FAQ from '../pages/FAQ/FAQ';
+import Blog from '../pages/Blog/Blog';
 
 const routes = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <div>blog</div>
+                element: <Blog></Blog>
             },
             {
                 path: '/faq',
